@@ -19,6 +19,8 @@
     <td><%=@seller[i]%></td>
     <% if @thumbnail[i] != :nopic %>
       <td><%= image_tag rails_blob_path(@thumbnail[i], disposition: :attachment) %></td>
+    <% else %>
+      <td><%= image_tag "nopic.png", :size => "100"%></td>
     <% end %>
     <% if session[:username] != nil%>
         <td>
