@@ -73,6 +73,11 @@ class MainController < ApplicationController
       newitem.price = params['price']
       newitem.stock = params['stock']
       newitem.User_id = whoare.id
+      # attaching a picture to the newitem
+      if params[:picture]
+        newitem.picture.attach(params[:picture])
+      end
+      
       newitem.save
       redirect_to controller:'main',action:'user_item', Username: session['username']
     elsif params['commit'] == 'Edit'
